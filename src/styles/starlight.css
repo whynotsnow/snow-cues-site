@@ -1,0 +1,38 @@
+:root {
+  --sl-color-accent-low: #ead2c6;
+  --sl-color-accent: #c9532b;
+  --sl-color-accent-high: #6f2b18;
+  --sl-color-white: #fffaf4;
+  --sl-color-gray-1: #f7f0e8;
+  --sl-color-gray-2: #ebe1d6;
+  --sl-color-gray-3: #d8cabc;
+  --sl-color-gray-4: #a99b8d;
+  --sl-color-gray-5: #75695e;
+  --sl-color-gray-6: #4b4037;
+  --sl-color-black: #2d241d;
+  --sl-font: Inter, "SF Pro Display", -apple-system, BlinkMacSystemFont,
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sl-font-mono: "Fira Code", "JetBrains Mono", "SF Mono", monospace;
+}
+
+:root[data-theme='dark'] {
+  --sl-color-accent-low: #472015;
+  --sl-color-accent: #ef835d;
+  --sl-color-accent-high: #ffd6c6;
+  --sl-color-white: #f8ede2;
+  --sl-color-gray-1: #eaded1;
+  --sl-color-gray-2: #c8b9aa;
+  --sl-color-gray-3: #9a8777;
+  --sl-color-gray-4: #6d5d50;
+  --sl-color-gray-5: #473a31;
+  --sl-color-gray-6: #2f2721;
+  --sl-color-black: #17110d;
+}
+
+.sl-markdown-content a:not(:where(.not-content *)) {
+  text-underline-offset: 0.18em;
+}
+
+.site-title {
+  font-weight: 800;
+}

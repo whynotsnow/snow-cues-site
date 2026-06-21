@@ -1,0 +1,109 @@
+---
+import '../styles/site.css';
+
+const highlights = [
+  {
+    title: '本地优先',
+    text: 'Snow Cues 在浏览器中运行，不提供账号系统、后端同步或云端恢复服务。',
+  },
+  {
+    title: '双秘密模型',
+    text: '空间主密码建立当前会话，单条密码的关键密钥参与生成和解密。',
+  },
+  {
+    title: '静态部署',
+    text: '应用和文档都可以构建为静态产物，适合 GitHub Pages 或 Cloudflare Pages。',
+  },
+];
+
+const flows = ['创建空间', '设置空间主密码', '初始化规则链', '创建并加密保存密码'];
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Snow Cues 是一个本地优先的密码派生与加密存储系统。"
+    />
+    <title>Snow Cues | 本地优先密码派生与加密存储</title>
+  </head>
+  <body>
+    <main class="site-shell">
+      <header class="site-nav" aria-label="站点导航">
+        <a class="brand" href="/">
+          <span class="brand-mark">S</span>
+          <span>Snow Cues</span>
+        </a>
+        <nav class="nav-links" aria-label="主要链接">
+          <a href="/docs/">用户文档</a>
+          <a href="/docs/user/security-boundaries/">安全边界</a>
+          <a href="/app/">打开应用</a>
+        </nav>
+      </header>
+
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Local-first password derivation</p>
+          <h1>只在本地运行的密码派生与加密存储工具。</h1>
+          <p class="lead">
+            Snow Cues 面向愿意自己掌控秘密材料的用户：不保存空间主密码，不保存关键密钥，
+            只在浏览器本地加密保存密码输出和必要的管理元数据。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="/docs/user/quick-start/">阅读快速开始</a>
+            <a class="button secondary" href="/app/">打开应用</a>
+          </div>
+        </div>
+
+        <div class="product-panel" aria-label="Snow Cues 工作流预览">
+          <div class="panel-topbar">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+          <div class="panel-body">
+            <p class="panel-kicker">核心工作流</p>
+            <ol class="flow-list">
+              {flows.map((flow, index) => (
+                <li>
+                  <span>{index + 1}</span>
+                  <strong>{flow}</strong>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading">
+          <p class="eyebrow">Why Snow Cues</p>
+          <h2>清楚边界，比神奇承诺更重要。</h2>
+        </div>
+        <div class="feature-grid">
+          {highlights.map((item) => (
+            <article class="feature-card">
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section class="callout">
+        <div>
+          <p class="eyebrow">Start here</p>
+          <h2>第一次使用前，建议先读完安全边界。</h2>
+          <p>
+            Snow Cues 不能替你恢复忘记的空间主密码或关键密钥。文档会明确说明系统保存什么、
+            不保存什么，以及换设备或清理浏览器数据前需要自己备份什么。
+          </p>
+        </div>
+        <a class="button primary" href="/docs/user/security-boundaries/">查看安全边界</a>
+      </section>
+    </main>
+  </body>
+</html>
