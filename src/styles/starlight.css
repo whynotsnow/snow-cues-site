@@ -1,38 +1,238 @@
-:root {
-  --sl-color-accent-low: #ead2c6;
-  --sl-color-accent: #c9532b;
-  --sl-color-accent-high: #6f2b18;
-  --sl-color-white: #fffaf4;
-  --sl-color-gray-1: #f7f0e8;
-  --sl-color-gray-2: #ebe1d6;
-  --sl-color-gray-3: #d8cabc;
-  --sl-color-gray-4: #a99b8d;
-  --sl-color-gray-5: #75695e;
-  --sl-color-gray-6: #4b4037;
-  --sl-color-black: #2d241d;
-  --sl-font: Inter, "SF Pro Display", -apple-system, BlinkMacSystemFont,
-    "PingFang SC", "Microsoft YaHei", sans-serif;
-  --sl-font-mono: "Fira Code", "JetBrains Mono", "SF Mono", monospace;
+/* ──────────────────────────────────────────────
+   Snow Cues — Starlight Theme Overrides
+   Palette: Anthropic-inspired warm earth tones
+   ────────────────────────────────────────────── */
+
+/* ── Light Mode: warm cream background ── */
+:root[data-theme='light'] {
+  /* Page & sidebar → same warm cream as landing page */
+  --sl-color-black: hsl(38, 28%, 91%);          /* page bg (warm cream) */
+  --sl-color-white: hsl(30, 15%, 15%);           /* text (dark brown) */
+
+  /* Gray scale → warm beige progression */
+  --sl-color-gray-1: hsl(30, 15%, 15%);          /* darkest text */
+  --sl-color-gray-2: hsl(30, 12%, 35%);          /* headings */
+  --sl-color-gray-3: hsl(30, 12%, 38%);          /* muted text */
+  --sl-color-gray-4: hsl(35, 18%, 55%);          /* secondary text */
+  --sl-color-gray-5: hsl(35, 20%, 82%);          /* borders */
+  --sl-color-gray-6: hsl(35, 25%, 87%);          /* inline code bg */
+  --sl-color-gray-7: hsl(38, 30%, 93%);          /* nav bg stripe */
+
+  /* Accent → terracotta orange */
+  --sl-color-accent-low: hsl(15, 55%, 48%, 0.12);
+  --sl-color-accent: hsl(15, 65%, 52%);
+  --sl-color-accent-high: hsl(15, 70%, 42%);
+
+  /* Sidebar */
+  --sl-color-bg-nav: var(--sl-color-gray-7);
+  --sl-color-bg-sidebar: var(--sl-color-black);
+  --sl-color-bg-inline-code: var(--sl-color-gray-6);
+
+  /* Hairlines */
+  --sl-color-hairline: var(--sl-color-gray-6);
+  --sl-color-hairline-light: var(--sl-color-gray-6);
+
+  /* Typography */
+  --sl-font: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --sl-font-mono: 'Fira Code', 'JetBrains Mono', 'SF Mono', monospace;
+
+  --sl-text-h1: 2.1875rem;
+  --sl-text-h2: 1.8125rem;
+  --sl-text-h3: 1.5rem;
+  --sl-text-h4: 1.25rem;
+  --sl-line-height-headings: 1.2;
+
+  --sl-nav-height: 4rem;
 }
 
+/* ── Dark Mode ── */
+:root,
 :root[data-theme='dark'] {
-  --sl-color-accent-low: #472015;
-  --sl-color-accent: #ef835d;
-  --sl-color-accent-high: #ffd6c6;
-  --sl-color-white: #f8ede2;
-  --sl-color-gray-1: #eaded1;
-  --sl-color-gray-2: #c8b9aa;
-  --sl-color-gray-3: #9a8777;
-  --sl-color-gray-4: #6d5d50;
-  --sl-color-gray-5: #473a31;
-  --sl-color-gray-6: #2f2721;
-  --sl-color-black: #17110d;
+  --sl-color-black: hsl(40, 15%, 12%);            /* page bg (dark olive) */
+  --sl-color-white: hsl(35, 20%, 88%);             /* text (light cream) */
+
+  /* Gray scale → warm dark progression */
+  --sl-color-gray-1: hsl(35, 20%, 88%);            /* lightest text */
+  --sl-color-gray-2: hsl(35, 18%, 75%);            /* soft text */
+  --sl-color-gray-3: hsl(35, 15%, 55%);            /* muted text */
+  --sl-color-gray-4: hsl(38, 10%, 35%);            /* secondary */
+  --sl-color-gray-5: hsl(38, 10%, 25%);            /* borders */
+  --sl-color-gray-6: hsl(38, 10%, 22%);            /* inline code bg */
+
+  /* Accent → terracotta orange (brighter for dark) */
+  --sl-color-accent-low: hsl(15, 50%, 20%);
+  --sl-color-accent: hsl(15, 65%, 58%);
+  --sl-color-accent-high: hsl(15, 75%, 72%);
+
+  /* Sidebar */
+  --sl-color-bg-nav: hsl(40, 12%, 10%);
+  --sl-color-bg-sidebar: var(--sl-color-black);
+  --sl-color-bg-inline-code: var(--sl-color-gray-6);
+
+  /* Hairlines */
+  --sl-color-hairline: var(--sl-color-gray-6);
+  --sl-color-hairline-light: var(--sl-color-gray-6);
+
+  /* Typography */
+  --sl-font: 'Inter', 'SF Pro Display', -apple-system, BlinkMacSystemFont,
+    'PingFang SC', 'Microsoft YaHei', sans-serif;
+  --sl-font-mono: 'Fira Code', 'JetBrains Mono', 'SF Mono', monospace;
+
+  --sl-text-h1: 2.1875rem;
+  --sl-text-h2: 1.8125rem;
+  --sl-text-h3: 1.5rem;
+  --sl-text-h4: 1.25rem;
+  --sl-line-height-headings: 1.2;
+
+  --sl-nav-height: 4rem;
 }
 
-.sl-markdown-content a:not(:where(.not-content *)) {
-  text-underline-offset: 0.18em;
+/* ── Navbar: glassmorphism ── */
+.header {
+  background: hsl(38, 28%, 91%, 0.8) !important;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--sl-color-gray-5);
+}
+:root[data-theme='dark'] .header {
+  background: hsl(40, 15%, 12%, 0.85) !important;
 }
 
 .site-title {
   font-weight: 800;
+}
+
+/* ── Sidebar ── */
+.sidebar-pane {
+  border-right-color: var(--sl-color-gray-5);
+}
+
+/* Sidebar active link: warm accent pill */
+.sidebar-content a[aria-current='page'],
+.sidebar-content a[aria-current='true'] {
+  background: hsl(15, 65%, 52%, 0.1);
+  color: var(--sl-color-accent);
+  font-weight: 600;
+}
+
+/* Sidebar link hover */
+.sidebar-content a:hover {
+  background: hsl(35, 22%, 85%, 0.4);
+  color: var(--sl-color-white);
+}
+
+/* ── Right sidebar (on-page TOC) ── */
+right-sidebar {
+  border-left-color: var(--sl-color-gray-5);
+}
+
+/* ── Content width ── */
+@media (min-width: 72rem) {
+  :root {
+    --sl-content-width: 48rem;
+  }
+}
+
+/* ── Smooth scroll ── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ══════════════════════════════════════════
+   Prose / Markdown content
+   ══════════════════════════════════════════ */
+
+/* Paragraphs: muted, good line-height */
+.sl-markdown-content p {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+/* Links: primary orange with underline */
+.sl-markdown-content a:not(:where(.not-content *)) {
+  color: var(--sl-color-accent);
+  text-underline-offset: 0.25rem;
+}
+.sl-markdown-content a:hover:not(:where(.not-content *)) {
+  opacity: 0.8;
+}
+
+/* Code blocks: card bg + border + radius */
+.sl-markdown-content pre {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.75rem;
+  background: var(--sl-color-gray-6);
+}
+
+/* Inline code: muted bg, primary text */
+.sl-markdown-content code:not(:where(pre *)) {
+  background: var(--sl-color-gray-6);
+  color: var(--sl-color-accent);
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.375rem;
+  font-size: 0.875em;
+}
+
+/* Blockquotes: primary left border + muted bg */
+.sl-markdown-content blockquote {
+  border-left: 4px solid hsl(15, 65%, 52%, 0.5);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0;
+  background: hsl(35, 22%, 85%, 0.3);
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Tables: bordered + rounded */
+.sl-markdown-content table {
+  border: 1px solid var(--sl-color-gray-5);
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+.sl-markdown-content thead {
+  background: hsl(35, 22%, 85%, 0.5);
+}
+.sl-markdown-content th {
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  text-align: left;
+}
+.sl-markdown-content td {
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  padding: 0.75rem 1rem;
+}
+
+/* Horizontal rule */
+.sl-markdown-content hr {
+  border-color: var(--sl-color-gray-5);
+  margin: 2rem 0;
+}
+
+/* Images: border, radius, shadow */
+.sl-markdown-content img {
+  border-radius: 0.75rem;
+  border: 1px solid var(--sl-color-gray-5);
+  box-shadow: var(--sl-shadow-lg);
+}
+
+/* Headings with bottom border for h1 */
+.sl-markdown-content h1 {
+  border-bottom: 1px solid var(--sl-color-gray-5);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+}
+.sl-markdown-content h1:first-child {
+  margin-top: 0;
+}
+
+.sl-markdown-content h2 {
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.sl-markdown-content h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
 }
