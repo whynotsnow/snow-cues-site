@@ -1,18 +1,21 @@
 ---
 title: 快速开始
-description: 第一次使用 Snow Cues，从可信运行环境到创建并保存第一条密码的完整流程。
+description: 第一次使用 Snow Cues，从官方 HTTPS 部署、Chromium 系浏览器到创建并保存第一条密码的完整流程。
 ---
 
 本文带你完成 Snow Cues 的第一次使用。从准备运行环境，到新建存储数据、进入空间、创建并保存第一条密码。
 
 ## 步骤 1：使用可信运行环境
 
-打开 Snow Cues 的 HTTPS 正式地址，或使用由该地址安装的 PWA。桌面本地开发可使用 `localhost` 或 `127.0.0.1`。
+推荐打开 Snow Cues 的官方 HTTPS 正式地址，或使用由该地址安装的 PWA。Snow Cues 也支持自部署，但自部署环境需要提供可信 HTTPS。
 
-Snow Cues 依赖浏览器原生 WebCrypto 能力。移动端浏览器通常要求安全上下文才开放完整密码学能力，因此正式推荐通过 HTTPS 地址或 PWA 使用。
+正式使用建议选择 Chrome、Edge 等 Chromium 系浏览器。Snow Cues 依赖浏览器原生 WebCrypto 能力；其他浏览器可能因为 WebCrypto、File System Access API 或安全上下文差异，出现无法加密、无法保存或敏感操作被阻断的问题。
+
+桌面本地开发可使用 `localhost` 或 `127.0.0.1`。
 
 :::caution[不推荐作为正式环境]
 - 普通局域网 HTTP，例如 `http://192.168.x.x`。
+- 非 Chromium 系浏览器作为主要正式环境。
 - 移动端 App 内置浏览器。
 - 文件管理器直接打开的 `file://` HTML。
 

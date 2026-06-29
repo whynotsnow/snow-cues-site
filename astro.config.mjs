@@ -47,7 +47,6 @@ export default defineConfig({
         {
           label: '参考',
           items: [
-            { label: '应用内指引', slug: 'docs/user/in-app-guidance' },
             { label: '常见问题', slug: 'docs/user/faq' },
             { label: '术语表', slug: 'docs/user/glossary' },
           ],
