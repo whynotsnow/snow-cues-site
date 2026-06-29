@@ -157,4 +157,5 @@ Snow Cues 不提供：
 
 - 忘记密码怎么办：[常见问题](/docs/user/faq/)。
 - 数据如何落盘：[存储数据与保存](/docs/user/storage-data/)。
+- 自行部署静态产物：[自部署](/docs/user/self-hosting/)。
 - 记忆便利性与风险：[安全性与便利性的取舍](/docs/user/security-convenience-tradeoffs/)。
