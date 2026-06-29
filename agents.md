@@ -9,7 +9,7 @@
 - **产品**: Snow Cues — 纯浏览器运行、本地优先的密码派生与加密存储系统
 - **站点构成**: 1 个手写落地页（`/`）+ 14 个 Starlight 文档页（`/docs/`）
 - **语言**: 简体中文（zh-CN），仅此一种 locale
-- **部署关系**: 本仓库是独立 Astro 项目，不包含产品应用代码。产品应用部署在 `/app/` 路径下
+- **部署关系**: 本仓库是独立 Astro 项目，不包含产品应用代码。产品应用部署在 `https://cues.whynotsnow.com/`
 
 ## 技术架构
 
@@ -148,7 +148,7 @@ description: 页面描述（用于 SEO、社交分享和列表展示）
 2. **术语呈现**：
    - 代码标识、类型名、存储字段名保持英文并用反引号包裹。例如：`` `storageData` ``、`` `current.json` ``、`` `ruleId` ``。
    - 规格关键字保持英文。例如：`HMAC-SHA256`、`PBKDF2`、`non-extractable`、`WebCrypto`。
-   - 路径和文件名用反引号：`` `/app/` ``、`` `src/content/docs/` ``。
+   - 路径、文件名和外部链接用反引号：`` `https://cues.whynotsnow.com/` ``、`` `src/content/docs/` ``。
 3. **语气**：面向最终用户，直接、有边界感。不使用「绝对安全」「不可破解」「零风险」等过度承诺。明确说明「什么会被保存、什么不会被保存」。
 4. **结构**：优先使用小标题分层，便于扫描。每个主要功能段落以一句话总结开头。
 5. **交叉引用**：使用相对链接格式 `/docs/user/目标页面-slug/`。
@@ -294,7 +294,7 @@ starlight.css      ← 文档页专用（astro.config.mjs 的 customCss）
 
 ### 修改注意事项
 
-- 导航栏链接：修改时确保 `/docs/` 和 `/docs/user/security-and-privacy/` 路径与文档页 slug 一致。`/app/` 指向外部应用。
+- 导航栏链接：修改时确保 `/docs/` 和 `/docs/user/security-and-privacy/` 路径与文档页 slug 一致。`https://cues.whynotsnow.com/` 指向外部应用。
 - CTA 按钮链接同理。
 - 修改 `flows` 数组时同步检查产品预览面板的步骤序号。
 
