@@ -107,7 +107,8 @@ Snow Cues 当前允许的算法包括：
 | `name` | 必填 | 页面中展示的规则名称，长度为 2 到 32 个字符。 |
 | `algorithm` | 必填 | 只能是 `hmac-sha256` 或 `pbkdf2-sha256`。 |
 | `namespace` | 可选 | 用于区分规则用途；不填写时默认使用 `id`。 |
-| `iterations` | 可选 | 仅 `pbkdf2-sha256` 使用；系统会限制在 100000 到 600000 之间。 |
+| `iterations` | 可选 | 旧格式兼容字段，仅 `pbkdf2-sha256` 使用；系统会限制在 100000 到 600000 之间。 |
+| `params` | 可选 | 新格式公开参数对象，由对应算法模板执行白名单校验、归一化和限幅。 |
 
 不要在 Rule 中填写：
 
@@ -137,6 +138,22 @@ PBKDF2 示例：
   "algorithm": "pbkdf2-sha256",
   "namespace": "finance",
   "iterations": 260000
+}
+```
+
+使用新格式时，PBKDF2 参数建议放在 `params` 中：
+
+```json
+{
+  "id": "imported-finance",
+  "name": "财务规则",
+  "algorithm": "pbkdf2-sha256",
+  "namespace": "finance",
+  "params": {
+    "iterations": 320000,
+    "materialLabel": "material-v2",
+    "saltLabel": "salt-v2"
+  }
 }
 ```
 
@@ -170,6 +187,54 @@ PBKDF2 示例：
 - `algorithm` 不是 `hmac-sha256` 或 `pbkdf2-sha256`。
 - `name` 太短或太长。
 - `iterations` 超出系统允许范围。
+- `params` 不是对象。
+- `params` 包含当前算法不支持的参数。
+
+### 当前官方算法参数
+
+官方构建只包含经过项目维护者审计的算法模板。导入规则会先解析 manifest，再检查 `algorithm` 是否存在于算法注册表，最后把 `params` 交给对应模板校验、归一化和限幅。
+
+`params` 是公开、非秘密、可持久化的空间级规则配置。它不能包含代码、表达式、远程 URL、平台、账号、关键密钥或单条密码派生输入。
+
+#### `hmac-sha256`
+
+允许参数：
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `saltPrefix` | string | `namespace` | HMAC 输入前缀，只允许小写字母、数字和连字符。 |
+
+如果不填写 `params.saltPrefix`，默认使用 `namespace`，旧版 HMAC manifest 会保持原行为。
+
+示例：
+
+```json
+{
+  "id": "imported-office",
+  "name": "办公规则",
+  "algorithm": "hmac-sha256",
+  "namespace": "office",
+  "params": {
+    "saltPrefix": "office-v1"
+  }
+}
+```
+
+#### `pbkdf2-sha256`
+
+允许参数：
+
+| 参数 | 类型 | 默认值 | 说明 |
+| --- | --- | --- | --- |
+| `iterations` | integer | `210000` | PBKDF2 迭代次数，限制在 100000 到 600000。 |
+| `materialLabel` | string | `material` | HMAC material 标签，只允许小写字母、数字和连字符。 |
+| `saltLabel` | string | `salt` | PBKDF2 salt 标签，只允许小写字母、数字和连字符。 |
+
+旧版顶层 `iterations` 仍然兼容，并会归一化为 `params.iterations`。只要不主动添加新的 `params` 配置，旧版 manifest 在新版本中应保持原行为。
+
+:::warning
+如果某个空间规则使用了 `params`，请使用支持 `params` 的 Snow Cues 版本打开和维护该空间。旧版本可能忽略 `params`，导致派生结果不一致。
+:::
 
 ### 如何选择并初始化规则链
 
