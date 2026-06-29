@@ -107,6 +107,8 @@ Cloudflare Pages 只用于分发静态前端代码。它：
 
 查看记忆提示不需要再次输入关键密钥，但需要当前空间会话能力。
 
+如果你希望通过复用相同或相似关键密钥、写更直接的记忆提示来降低记忆负担，请先理解 [安全性与便利性的取舍](/docs/user/security-convenience-tradeoffs/)。
+
 ## 不能恢复的内容
 
 Snow Cues 不提供：
@@ -125,3 +127,4 @@ Snow Cues 不提供：
 
 - 忘记密码怎么办：[常见问题](/docs/user/faq/)。
 - 数据如何落盘：[存储数据与保存](/docs/user/storage-data/)。
+- 记忆便利性与风险：[安全性与便利性的取舍](/docs/user/security-convenience-tradeoffs/)。
