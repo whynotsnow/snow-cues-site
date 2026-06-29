@@ -41,7 +41,7 @@ export default defineConfig({
             { label: '存储数据与保存', slug: 'docs/user/storage-data' },
             { label: '克隆、导入与迁移', slug: 'docs/user/import-export-migration' },
             { label: '安全与隐私', slug: 'docs/user/security-and-privacy' },
-            { label: '自部署', slug: 'docs/user/self-hosting' },
+            { label: '运行方式与自部署', slug: 'docs/user/self-hosting' },
             { label: '安全性与便利性的取舍', slug: 'docs/user/security-convenience-tradeoffs' },
           ],
         },
